@@ -1,0 +1,30 @@
+.simulator {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 0 25px 0 25px;
+}
+
+.simulator-title {
+    grid-column: span 2;
+}
+
+.section {
+    border: 1px solid black;
+}
+
+.income-top, .indexing-top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.actions {
+    display: flex;
+    justify-content: space-between;
+    grid-column: span 2;
+    border: 1px solid black;
+}
+
+.actions button {
+    width: 49%;
+}

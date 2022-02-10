@@ -1,0 +1,26 @@
+.results {
+    padding-left: 15px;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 100px 100px;
+}
+
+.board h5 {
+    padding: 5px 0 0 0;
+    margin: 5px 0 0 0;
+}
+
+.card {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 5px;
+    align-items: center;
+    background-color: #fff;
+    height: 80px;
+    width: 190px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}

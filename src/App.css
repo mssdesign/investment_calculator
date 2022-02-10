@@ -2,15 +2,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid black;
 }
 
 .components {
     display: grid;
     grid-template-columns: 1fr 1fr;    
     grid-template-rows: 85vh;
-}
-
-.component {
-    border: 1px solid black;
 }

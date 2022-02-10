@@ -4,22 +4,97 @@
     padding: 0 25px 0 25px;
 }
 
+button {
+    cursor: pointer;
+}
+
+h6 {
+    font-weight: lighter;
+    margin-bottom: 5px;
+}
+
+h6.first-variable {
+    margin: 0;
+    padding: 0;
+}
+
+input {
+    border: none;
+    border-bottom: 1px solid black;
+    cursor: pointer;
+    background-color: #EFEFEF;
+    position: relative;
+    padding-bottom: 5px;
+    width: 100%;
+}
+
+input:focus {
+    outline: none;
+}
+
 .simulator-title {
     grid-column: span 2;
 }
 
-.section {
-    border: 1px solid black;
-}
-
 .income, .indexing {
-    width: 90%;
+    width: 80%;
 }
 
 .income-top, .indexing-top {
     display: flex;
+    height: 20px;
     flex-direction: row;
+    align-items: center;
     justify-content: space-between;
+}
+
+.info {
+    cursor: pointer;
+    height: 18px;
+}
+
+.income-buttons {
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.income-buttons button {
+    height: 35px;
+}
+
+.income-buttons :first-child {
+    border-radius: 8px 0 0 8px;
+}
+
+.income-buttons :last-child {
+    border-radius: 0 8px 8px 0;
+}
+
+.income-buttons button.active {
+    background-color: #ED8E53;
+}
+
+.indexing-buttons {
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.indexing-buttons button {
+    height: 35px;
+}
+
+.indexing-buttons :first-child {
+    border-radius: 8px 0 0 8px;
+}
+
+.indexing-buttons :last-child {
+    border-radius: 0 8px 8px 0;
+}
+
+.indexing-buttons button.active {
+    background-color: #ED8E53;
 }
 
 .actions {

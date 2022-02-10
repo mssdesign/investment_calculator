@@ -12,6 +12,10 @@
     border: 1px solid black;
 }
 
+.income, .indexing {
+    width: 90%;
+}
+
 .income-top, .indexing-top {
     display: flex;
     flex-direction: row;
@@ -22,9 +26,17 @@
     display: flex;
     justify-content: space-between;
     grid-column: span 2;
-    border: 1px solid black;
 }
 
 .actions button {
+    margin-top: 25px;
+    font-weight: bolder;
+    padding: 10px 25px;
+    border-radius: 8px;
     width: 49%;
+}
+
+#simulate-action {
+    background-color: #ED8E53;
+    border: none;
 }

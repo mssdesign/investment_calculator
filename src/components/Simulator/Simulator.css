@@ -40,6 +40,10 @@ input:focus {
     width: 80%;
 }
 
+.indexing {
+    margin-left: 15px;
+}
+
 .income-top, .indexing-top {
     display: flex;
     height: 20px;
@@ -108,7 +112,7 @@ input:focus {
     font-weight: bolder;
     padding: 10px 25px;
     border-radius: 8px;
-    width: 49%;
+    width: 48.5%;
 }
 
 #simulate-action {

@@ -1,7 +1,29 @@
 import './Simulator.css'
+import React, { useState, useEffect } from 'react'
 import info from '../../assets/info.svg'
+import api from '../../services/api'
 
 const Simulator = (props) => {
+  const [ipcaValue, setIpcaValue] = useState('Carregando...')
+  const [cdiValue, setCdiValue] = useState('Carregando...')
+
+  //Fetching dos indicadores
+  async function getIndexValues() {
+    await api
+    .get("/indicadores")
+    .then((response) => {
+      setIpcaValue(response.data[1].valor)
+      setCdiValue(response.data[0].valor)
+    })
+    .catch((err) => {
+      console.log('Ocorreu um erro!' + err)
+    })
+  }
+
+  useEffect(() => {
+    getIndexValues();
+  }, [])
+
   function simulateInvestments() {
     props.onSimulate()
   }
@@ -30,7 +52,7 @@ const Simulator = (props) => {
               <input type="text"></input>
 
               <h5>IPCA (ao ano)</h5>
-              <input type="text"></input>
+              <input type="text" value={ipcaValue} readOnly></input>
             </div>
         </div>
       </div>
@@ -56,7 +78,7 @@ const Simulator = (props) => {
               <input type="text"></input>
 
               <h5>CDI (ao ano)</h5>
-              <input type="text"></input>
+              <input type="text" value={cdiValue} readOnly></input>
             </div>
         </div>
       </div>

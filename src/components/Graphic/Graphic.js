@@ -31,6 +31,10 @@ const Graphic = () => {
                     <p>R$ 15.509,27</p>
                 </div>
             </div>
+
+            <div className='graphic'>
+                
+            </div>
         </div>
     )
 }

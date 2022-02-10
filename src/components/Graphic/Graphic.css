@@ -2,6 +2,10 @@
     padding-left: 15px;
 }
 
+.results-title {
+    padding-bottom: 15px;
+}
+
 .board {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -20,7 +24,7 @@
     border-radius: 5px;
     align-items: center;
     background-color: #fff;
-    height: 80px;
-    width: 190px;
+    height: 80%;
+    width: 90%;
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }

@@ -1,19 +1,19 @@
 .simulator {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    padding: 0 25px 0 25px;
+    padding: 0 25px 30px 25px;
 }
 
 button {
     cursor: pointer;
 }
 
-h6 {
+h5 {
     font-weight: lighter;
     margin-bottom: 5px;
 }
 
-h6.first-variable {
+h5.first-variable {
     margin: 0;
     padding: 0;
 }
@@ -26,6 +26,7 @@ input {
     position: relative;
     padding-bottom: 5px;
     width: 100%;
+    margin-bottom: 10%;
 }
 
 input:focus {
@@ -58,7 +59,7 @@ input:focus {
 }
 
 .income-buttons {
-    margin-top: 10px;
+    margin: 10% 0 25% 0;
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
@@ -80,7 +81,7 @@ input:focus {
 }
 
 .indexing-buttons {
-    margin-top: 10px;
+    margin: 10% 0 25% 0;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
 }

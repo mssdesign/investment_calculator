@@ -13,7 +13,7 @@ const Simulator = (props) => {
       <div className="section">
         <div className='income'>
             <div className="income-top">
-              <h6 className='first-variable'>Rendimento</h6>
+              <h5 className='first-variable'>Rendimento</h5>
               <img src={info} alt="mais informaões" className='info'></img>
             </div>
 
@@ -23,13 +23,13 @@ const Simulator = (props) => {
             </div>
 
             <div className='income-variables'>
-              <h6>Aporte Inicial</h6>
+              <h5>Aporte Inicial</h5>
               <input type="text"></input>
 
-              <h6>Prazo (em meses)</h6>
+              <h5>Prazo (em meses)</h5>
               <input type="text"></input>
 
-              <h6>IPCA (ao ano)</h6>
+              <h5>IPCA (ao ano)</h5>
               <input type="text"></input>
             </div>
         </div>
@@ -38,7 +38,7 @@ const Simulator = (props) => {
       <div className="section">
         <div className='indexing'>
             <div className="indexing-top">
-              <h6 className='first-variable'>Tipos de indexação</h6>
+              <h5 className='first-variable'>Tipos de indexação</h5>
               <img src={info} alt="mais informaões" className='info'></img>
             </div>
 
@@ -49,13 +49,13 @@ const Simulator = (props) => {
             </div>
 
             <div className='indexing-variables'>
-              <h6>Aporte Mensal</h6>
+              <h5>Aporte Mensal</h5>
               <input type="text"></input>
 
-              <h6>Rentabilidade</h6>
+              <h5>Rentabilidade</h5>
               <input type="text"></input>
 
-              <h6>CDI (ao ano)</h6>
+              <h5>CDI (ao ano)</h5>
               <input type="text"></input>
             </div>
         </div>

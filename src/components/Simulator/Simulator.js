@@ -9,6 +9,7 @@ const Simulator = (props) => {
   const [profitabilityIsValid, setProfitability] = useState(true)
   const [monthlyContributionIsValid, setMonthlyContribution] = useState(true)
   const [initialContributionIsValid, setInitialContribution] = useState(true)
+  const [deadlineIsValid, setDeadline] = useState(true)
 
   //Validando o campo de contribuição inicial
   function validateInitialContribution(e) {
@@ -23,6 +24,21 @@ const Simulator = (props) => {
 
     setInitialContribution(true)
     e.target.value = `R$ ${num}`
+  }
+
+  //Validando prazo
+  function validateDeadline(e) {
+    let num = e.target.value
+    num = num.replace(/\D/gi, '')
+
+    if (num === '') {
+      setDeadline(false)
+      e.target.value = ''
+      return
+    }
+
+    setDeadline(true)
+    e.target.value = `${num}`
   }
 
   //Validando o campo de contribuição mensal
@@ -115,8 +131,25 @@ const Simulator = (props) => {
             {!initialContributionIsValid && (
               <p className="error">Aporte deve ser um número.</p>
             )}
-            <h5>Prazo (em meses)</h5>
-            <input type="number"></input>
+            <h5
+              style={
+                deadlineIsValid ? { color: '#000000' } : { color: '#ff0000' }
+              }
+            >
+              Prazo (em meses)
+            </h5>
+            <input
+              type="text"
+              onBlur={validateDeadline}
+              style={
+                deadlineIsValid
+                  ? { borderColor: '#000000' }
+                  : { borderColor: '#ff0000' }
+              }
+            ></input>
+            {!deadlineIsValid && (
+              <p className="error">O prazo deve ser um número.</p>
+            )}
             <h5>IPCA (ao ano)</h5>
             <input type="text" value={ipcaValue} readOnly></input>
           </div>

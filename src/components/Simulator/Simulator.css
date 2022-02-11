@@ -18,6 +18,13 @@ h5.first-variable {
     padding: 0;
 }
 
+.error {
+    padding-top: 0;
+    margin-top: 0;
+    font-size: 10px;
+    color: #ff0000;
+}
+
 input {
     border: none;
     border-bottom: 1px solid black;

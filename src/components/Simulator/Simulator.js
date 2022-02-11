@@ -7,13 +7,21 @@ const Simulator = (props) => {
   const [ipcaValue, setIpcaValue] = useState('Carregando...')
   const [cdiValue, setCdiValue] = useState('Carregando...')
 
+  //Atualizando o campo de rentabilidade com o símbolo de porcentagem
+  const [profitability, setProfitability] = useState('')
+
+  function addPercentSymbol(e) {
+    setProfitability(e.target.value)
+    setProfitability('%') //Por que não apaga? O que fazer agora?
+  }
+
   //Fetching dos indicadores
   async function getIndexValues() {
     await api
     .get("/indicadores")
     .then((response) => {
-      setIpcaValue(response.data[1].valor)
-      setCdiValue(response.data[0].valor)
+      setIpcaValue(response.data[1].valor + '%')
+      setCdiValue(response.data[0].valor + '%')
     })
     .catch((err) => {
       console.log('Ocorreu um erro!' + err)
@@ -49,7 +57,7 @@ const Simulator = (props) => {
               <input type="text"></input>
 
               <h5>Prazo (em meses)</h5>
-              <input type="text"></input>
+              <input type="number"></input>
 
               <h5>IPCA (ao ano)</h5>
               <input type="text" value={ipcaValue} readOnly></input>
@@ -75,7 +83,7 @@ const Simulator = (props) => {
               <input type="text"></input>
 
               <h5>Rentabilidade</h5>
-              <input type="text"></input>
+              <input type="text" onChange={addPercentSymbol} value={profitability}></input>
 
               <h5>CDI (ao ano)</h5>
               <input type="text" value={cdiValue} readOnly></input>

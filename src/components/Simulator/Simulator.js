@@ -27,12 +27,17 @@ const Simulator = (props) => {
 
   //Validando o campo de contribuição mensal
   function validateMonthlyContribution(e) {
-    //Fazer validação
-    let test2 = false //Apagar
+    let num = e.target.value
+    num = num.replace(/[R$]|\D/gi, '')
 
-    if (test2) {
+    if (num === '') {
       setMonthlyContribution(false)
+      e.target.value = ''
+      return
     }
+
+    setMonthlyContribution(true)
+    e.target.value = `R$ ${num}`
   }
 
   //Validando o campo de rentabilidade

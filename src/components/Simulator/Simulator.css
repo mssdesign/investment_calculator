@@ -84,6 +84,7 @@ input:focus {
 }
 
 .income-buttons button.active {
+    color: #fff;
     background-color: #ED8E53;
 }
 
@@ -106,6 +107,7 @@ input:focus {
 }
 
 .indexing-buttons button.active {
+    color: #fff;
     background-color: #ED8E53;
 }
 
@@ -123,7 +125,11 @@ input:focus {
     width: 48.5%;
 }
 
+.actions button:hover {
+    transform: scale(0.98);
+}
+
 #simulate-action {
     background-color: #ED8E53;
-    border: none;
+    border: none;    
 }

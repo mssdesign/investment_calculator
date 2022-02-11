@@ -10,18 +10,40 @@ const Simulator = (props) => {
   const [monthlyContributionIsValid, setMonthlyContribution] = useState(true)
   const [initialContributionIsValid, setInitialContribution] = useState(true)
   const [deadlineIsValid, setDeadline] = useState(true)
-  const [incomeGrossButtonClass, setGrossActive] = useState('active')
-  const [incomeLiquidButtonClass, setLiquidActive] = useState('disabled')
+  const [incomeGrossButtonClass, setGrossButton] = useState('active')
+  const [incomeLiquidButtonClass, setLiquidButton] = useState('disabled')
+  const [indexingPreviousButtonClass, setPreviousButton] = useState('disabled')
+  const [indexingPosteriorButtonClass, setPosteriorButton] = useState('active')
+  const [indexingFixedButtonClass, setFixedButton] = useState('disabled')
 
   //Alternando botões do rendimento
   function activeGrossButton() {
-    setGrossActive('active')
-    setLiquidActive('disabled')
+    setGrossButton('active')
+    setLiquidButton('disabled')
   }
 
   function activeLiquidButton() {
-    setGrossActive('disabled')
-    setLiquidActive('active')
+    setGrossButton('disabled')
+    setLiquidButton('active')
+  }
+
+  //Alternando botões dos tipos de indexação
+  function activePreviousButton() {
+    setPreviousButton('active')
+    setPosteriorButton('disabled')
+    setFixedButton('disabled')
+  }
+
+  function activePosteriorButton() {
+    setPreviousButton('disabled')
+    setPosteriorButton('active')
+    setFixedButton('disabled')
+  }
+
+  function activeFixedButton() {
+    setPreviousButton('disabled')
+    setPosteriorButton('disabled')
+    setFixedButton('active')
   }
 
   //Limpando campos
@@ -123,8 +145,8 @@ const Simulator = (props) => {
           </div>
 
           <div className="income-buttons">
-            <button className={incomeGrossButtonClass} value="gross" onClick={activeGrossButton}>Bruto</button> 
-            <button className={incomeLiquidButtonClass} value="liquid" onClick={activeLiquidButton}>Líquido</button>
+            <button className={incomeGrossButtonClass} onClick={activeGrossButton}>Bruto</button> 
+            <button className={incomeLiquidButtonClass} onClick={activeLiquidButton}>Líquido</button>
           </div>
 
           <div className="income-variables">
@@ -182,9 +204,9 @@ const Simulator = (props) => {
           </div>
 
           <div className="indexing-buttons">
-            <button>PRÉ</button>
-            <button className="active">POS</button>
-            <button>FIXADO</button>
+            <button className={indexingPreviousButtonClass} onClick={activePreviousButton}>PRÉ</button>
+            <button className={indexingPosteriorButtonClass} onClick={activePosteriorButton}>POS</button>
+            <button className={indexingFixedButtonClass} onClick={activeFixedButton}>FIXADO</button>
           </div>
 
           <div className="indexing-variables">

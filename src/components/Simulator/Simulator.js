@@ -10,6 +10,19 @@ const Simulator = (props) => {
   const [monthlyContributionIsValid, setMonthlyContribution] = useState(true)
   const [initialContributionIsValid, setInitialContribution] = useState(true)
   const [deadlineIsValid, setDeadline] = useState(true)
+  const [incomeGrossButtonClass, setGrossActive] = useState('active')
+  const [incomeLiquidButtonClass, setLiquidActive] = useState('disabled')
+
+  //Alternando botões do rendimento
+  function activeGrossButton() {
+    setGrossActive('active')
+    setLiquidActive('disabled')
+  }
+
+  function activeLiquidButton() {
+    setGrossActive('disabled')
+    setLiquidActive('active')
+  }
 
   //Limpando campos
   function clearAll() {
@@ -110,8 +123,8 @@ const Simulator = (props) => {
           </div>
 
           <div className="income-buttons">
-            <button className="active">Bruto</button>
-            <button>Líquido</button>
+            <button className={incomeGrossButtonClass} value="gross" onClick={activeGrossButton}>Bruto</button> 
+            <button className={incomeLiquidButtonClass} value="liquid" onClick={activeLiquidButton}>Líquido</button>
           </div>
 
           <div className="income-variables">

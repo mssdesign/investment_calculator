@@ -7,12 +7,18 @@ const Simulator = (props) => {
   const [ipcaValue, setIpcaValue] = useState('Carregando...')
   const [cdiValue, setCdiValue] = useState('Carregando...')
 
-  //Atualizando o campo de rentabilidade com o símbolo de porcentagem
-  const [profitability, setProfitability] = useState('')
+  //Validando o campo de rentabilidade com o símbolo de porcentagem
+  function validateProfitability(e) {
+    let num = e.target.value
 
-  function addPercentSymbol(e) {
-    setProfitability(e.target.value)
-    setProfitability('%') //Por que não apaga? O que fazer agora?
+    num = num.replace(/\D|%*/gi, '')  //Retirando dígitos e outros símbolos de '%'
+    
+    if (num === '') {
+      e.target.value = '' 
+      return
+    }
+
+    e.target.value = num + '%'
   }
 
   //Fetching dos indicadores
@@ -83,7 +89,7 @@ const Simulator = (props) => {
               <input type="text"></input>
 
               <h5>Rentabilidade</h5>
-              <input type="text" onChange={addPercentSymbol} value={profitability}></input>
+              <input type="text" onBlur={validateProfitability}></input>
 
               <h5>CDI (ao ano)</h5>
               <input type="text" value={cdiValue} readOnly></input>
@@ -92,7 +98,7 @@ const Simulator = (props) => {
       </div>
 
       <div className="actions">
-        <button onClick={simulateInvestments}>Limpar campos</button>
+        <button>Limpar campos</button>
         <button onClick={simulateInvestments} id="simulate-action">Simular</button>
       </div>
     </div>

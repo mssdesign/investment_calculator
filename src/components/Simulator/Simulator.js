@@ -11,6 +11,11 @@ const Simulator = (props) => {
   const [initialContributionIsValid, setInitialContribution] = useState(true)
   const [deadlineIsValid, setDeadline] = useState(true)
 
+  //Limpando campos
+  function clearAll() {
+    window.location.reload()
+  }
+
   //Validando o campo de contribuição inicial
   function validateInitialContribution(e) {
     let num = e.target.value
@@ -221,7 +226,7 @@ const Simulator = (props) => {
       </div>
 
       <div className="actions">
-        <button>Limpar campos</button>
+        <button onClick={clearAll}>Limpar campos</button>
         <button onClick={simulateInvestments} id="simulate-action">
           Simular
         </button>

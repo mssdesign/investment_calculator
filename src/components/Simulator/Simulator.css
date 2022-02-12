@@ -129,7 +129,17 @@ input:focus {
     transform: scale(0.98);
 }
 
-#simulate-action {
+#enableForm {
     background-color: #ED8E53;
     border: none;    
+}
+
+#disabledForm {
+    background-color: #969696;
+    border: none;
+    cursor: not-allowed;
+}
+
+#disabledForm:hover {
+    transform: scale(1);
 }

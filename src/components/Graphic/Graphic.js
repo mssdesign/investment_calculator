@@ -1,6 +1,20 @@
 import './Graphic.css'
+import api from '../../services/api'
 
-const Graphic = () => {
+const Graphic = (props) => {
+    //http://localhost:3000/simulacoes?tipoIndexacao=pos&tipoRendimento=bruto
+
+    async function getSimulationValues() {
+        await api
+          .get('/simulacoes')
+          .then((response) => {
+            
+          })
+          .catch((err) => {
+            console.log('Ocorreu um erro!' + err)
+          })
+    }
+
     return (
         <div className='results'>
             <h3 className="results-title">Resultado da Simulação</h3>

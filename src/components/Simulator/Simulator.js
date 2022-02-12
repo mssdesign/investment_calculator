@@ -10,11 +10,16 @@ const Simulator = (props) => {
   const [monthlyContributionIsValid, setMonthlyContribution] = useState(true)
   const [initialContributionIsValid, setInitialContribution] = useState(true)
   const [deadlineIsValid, setDeadline] = useState(true)
+  const [formIsValid, setValidateForm] = useState(false)
   const [incomeGrossButtonClass, setGrossButton] = useState('active')
   const [incomeLiquidButtonClass, setLiquidButton] = useState('disabled')
   const [indexingPreviousButtonClass, setPreviousButton] = useState('disabled')
   const [indexingPosteriorButtonClass, setPosteriorButton] = useState('active')
   const [indexingFixedButtonClass, setFixedButton] = useState('disabled')
+  let profitability = ''
+  let monthlyContribution = ''
+  let initialContribution = ''
+  let deadline = ''
 
   //Alternando botões do rendimento
   function activeGrossButton() {
@@ -62,8 +67,10 @@ const Simulator = (props) => {
       return
     }
 
+    initialContribution = num
     setInitialContribution(true)
     e.target.value = `R$ ${num}`
+    validateForm()
   }
 
   //Validando prazo
@@ -77,8 +84,10 @@ const Simulator = (props) => {
       return
     }
 
+    deadline = num
     setDeadline(true)
     e.target.value = `${num}`
+    validateForm()
   }
 
   //Validando o campo de contribuição mensal
@@ -92,8 +101,10 @@ const Simulator = (props) => {
       return
     }
 
+    monthlyContribution = num
     setMonthlyContribution(true)
     e.target.value = `R$ ${num}`
+    validateForm()
   }
 
   //Validando o campo de rentabilidade
@@ -109,7 +120,9 @@ const Simulator = (props) => {
     }
 
     setProfitability(true)
+    profitability = num
     e.target.value = num + '%'
+    validateForm()
   }
 
   //Fetching dos indicadores
@@ -125,12 +138,49 @@ const Simulator = (props) => {
       })
   }
 
+  //Carregando dados no início da aplicação
   useEffect(() => {
     getIndexValues()
   }, [])
 
+  //Função para abrir a tabela
   function simulateInvestments() {
     props.onSimulate()
+  }
+
+  //Validando formulário
+  function validateForm() {
+    if (
+      profitabilityIsValid &&
+      monthlyContributionIsValid &&
+      initialContributionIsValid &&
+      deadlineIsValid &&
+      profitability !== '' &&
+      monthlyContribution !== '' &&
+      initialContribution !== '' &&
+      deadline !== ''
+    ) {
+      setValidateForm(true)
+    }
+  }
+
+  //Mostrando campos inválidos ao usuário
+  function showInvalidInputs() {
+    if (profitabilityIsValid === false || profitability === '') {
+      setProfitability(false)
+    }
+
+    if (monthlyContributionIsValid === false || monthlyContribution === '') {
+      setMonthlyContribution(false)
+    }
+
+    if (initialContributionIsValid === false || initialContribution === '') {
+      setInitialContribution(false)
+    }
+
+    if (deadlineIsValid === false || deadline === '') {
+      setDeadline(false)
+    }
   }
 
   return (
@@ -145,8 +195,18 @@ const Simulator = (props) => {
           </div>
 
           <div className="income-buttons">
-            <button className={incomeGrossButtonClass} onClick={activeGrossButton}>Bruto</button> 
-            <button className={incomeLiquidButtonClass} onClick={activeLiquidButton}>Líquido</button>
+            <button
+              className={incomeGrossButtonClass}
+              onClick={activeGrossButton}
+            >
+              Bruto
+            </button>
+            <button
+              className={incomeLiquidButtonClass}
+              onClick={activeLiquidButton}
+            >
+              Líquido
+            </button>
           </div>
 
           <div className="income-variables">
@@ -204,9 +264,24 @@ const Simulator = (props) => {
           </div>
 
           <div className="indexing-buttons">
-            <button className={indexingPreviousButtonClass} onClick={activePreviousButton}>PRÉ</button>
-            <button className={indexingPosteriorButtonClass} onClick={activePosteriorButton}>POS</button>
-            <button className={indexingFixedButtonClass} onClick={activeFixedButton}>FIXADO</button>
+            <button
+              className={indexingPreviousButtonClass}
+              onClick={activePreviousButton}
+            >
+              PRÉ
+            </button>
+            <button
+              className={indexingPosteriorButtonClass}
+              onClick={activePosteriorButton}
+            >
+              POS
+            </button>
+            <button
+              className={indexingFixedButtonClass}
+              onClick={activeFixedButton}
+            >
+              FIXADO
+            </button>
           </div>
 
           <div className="indexing-variables">
@@ -262,7 +337,10 @@ const Simulator = (props) => {
 
       <div className="actions">
         <button onClick={clearAll}>Limpar campos</button>
-        <button onClick={simulateInvestments} id="simulate-action">
+        <button
+          onClick={formIsValid ? simulateInvestments : showInvalidInputs}
+          id={formIsValid ? 'enableForm' : 'disabledForm'}
+        >
           Simular
         </button>
       </div>

@@ -161,6 +161,8 @@ const Simulator = (props) => {
       deadline !== ''
     ) {
       setValidateForm(true)
+    } else {
+      setValidateForm(false)
     }
   }
 

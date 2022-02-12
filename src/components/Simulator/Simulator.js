@@ -1,25 +1,53 @@
 import './Simulator.css'
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import info from '../../assets/info.svg'
 import api from '../../services/api'
 
 const Simulator = (props) => {
-  const [ipcaValue, setIpcaValue] = useState('Carregando...')
-  const [cdiValue, setCdiValue] = useState('Carregando...')
-  const [profitabilityIsValid, setProfitability] = useState(true)
-  const [monthlyContributionIsValid, setMonthlyContribution] = useState(true)
-  const [initialContributionIsValid, setInitialContribution] = useState(true)
-  const [deadlineIsValid, setDeadline] = useState(true)
-  const [formIsValid, setValidateForm] = useState(false)
+  //Botões dos tipos de rendimento
   const [incomeGrossButtonClass, setGrossButton] = useState('active')
   const [incomeLiquidButtonClass, setLiquidButton] = useState('disabled')
+
+  //Botões dos tipos de indexação
   const [indexingPreviousButtonClass, setPreviousButton] = useState('disabled')
   const [indexingPosteriorButtonClass, setPosteriorButton] = useState('active')
   const [indexingFixedButtonClass, setFixedButton] = useState('disabled')
-  let profitability = ''
-  let monthlyContribution = ''
-  let initialContribution = ''
-  let deadline = ''
+
+  //Validando e atualizando valores do rendimento
+  const [profitabilityIsValid, setProfitability] = useState(true)
+  const [profitabilityInput, setInputProfitability] = useState('')
+  const profitabilityValue = useRef('')
+
+  useEffect(() => {
+    profitabilityValue.current = profitabilityInput
+  }, [profitabilityInput])
+
+  //Validando e atualizando valores do aporte mensal
+  const [monthlyContributionIsValid, setMonthlyContribution] = useState(true)
+  const [monthlyContributionInput, setInputMonthlyContribution] = useState('')
+  const monthlyContributionValue = useRef('')
+
+  useEffect(() => {
+    monthlyContributionValue.current = monthlyContributionInput
+  }, [monthlyContributionInput])
+
+  //Validando e atualizando valores do aporte inicial
+  const [initialContributionIsValid, setInitialContribution] = useState(true)
+  const [initialContributionInput, setInputInitialContribution] = useState('')
+  const initialContributionValue = useRef('')
+
+  useEffect(() => {
+    initialContributionValue.current = initialContributionInput
+  }, [initialContributionInput])
+
+  //Validando e atualizando valores do prazo
+  const [deadlineIsValid, setDeadline] = useState(true)
+  const [deadlineInput, setInputDeadline] = useState('')
+  const deadlineValue = useRef('')
+
+  useEffect(() => {
+    deadlineValue.current = deadlineInput
+  }, [deadlineInput])
 
   //Alternando botões do rendimento
   function activeGrossButton() {
@@ -67,7 +95,7 @@ const Simulator = (props) => {
       return
     }
 
-    initialContribution = num
+    setInputInitialContribution(num)
     setInitialContribution(true)
     e.target.value = `R$ ${num}`
     validateForm()
@@ -84,7 +112,7 @@ const Simulator = (props) => {
       return
     }
 
-    deadline = num
+    setInputDeadline(num)
     setDeadline(true)
     e.target.value = `${num}`
     validateForm()
@@ -101,7 +129,7 @@ const Simulator = (props) => {
       return
     }
 
-    monthlyContribution = num
+    setInputMonthlyContribution(num)
     setMonthlyContribution(true)
     e.target.value = `R$ ${num}`
     validateForm()
@@ -111,7 +139,7 @@ const Simulator = (props) => {
   function validateProfitability(e) {
     let num = e.target.value
 
-    num = num.replace(/\D|%*/gi, '') //Retirando dígitos e outros símbolos de '%'
+    num = num.replace(/\D|%*/gi, '')
 
     if (num === '') {
       setProfitability(false)
@@ -120,12 +148,14 @@ const Simulator = (props) => {
     }
 
     setProfitability(true)
-    profitability = num
+    setInputProfitability(num)
     e.target.value = num + '%'
     validateForm()
   }
 
   //Fetching dos indicadores
+  const [ipcaValue, setIpcaValue] = useState('Carregando...')
+  const [cdiValue, setCdiValue] = useState('Carregando...')
   async function getIndexValues() {
     await api
       .get('/indicadores')
@@ -149,38 +179,47 @@ const Simulator = (props) => {
   }
 
   //Validando formulário
+  const [formIsValid, setValidateForm] = useState(false)
   function validateForm() {
     if (
       profitabilityIsValid &&
       monthlyContributionIsValid &&
       initialContributionIsValid &&
       deadlineIsValid &&
-      profitability !== '' &&
-      monthlyContribution !== '' &&
-      initialContribution !== '' &&
-      deadline !== ''
+      profitabilityValue.current !== '' &&
+      monthlyContributionValue.current !== '' &&
+      initialContributionValue.current !== '' &&
+      deadlineValue.current !== ''
     ) {
       setValidateForm(true)
+      console.log('rentabilidade: ' + profitabilityValue.current)
+      console.log('Contribuição mensal: ' + monthlyContributionValue.current)
+      console.log('Contribuição inicial: ' + initialContributionValue.current)
+      console.log('Prazo: ' + deadlineValue.current)
     } else {
       setValidateForm(false)
+      console.log('rentabilidade: ' + profitabilityValue.current)
+      console.log('Contribuição mensal: ' + monthlyContributionValue.current)
+      console.log('Contribuição inicial: ' + initialContributionValue.current)
+      console.log('Prazo: ' + deadlineValue.current)
     }
   }
 
   //Mostrando campos inválidos ao usuário
   function showInvalidInputs() {
-    if (profitabilityIsValid === false || profitability === '') {
+    if (profitabilityIsValid === false || profitabilityValue.current === '') {
       setProfitability(false)
     }
 
-    if (monthlyContributionIsValid === false || monthlyContribution === '') {
+    if (monthlyContributionIsValid === false || monthlyContributionValue.current === '') {
       setMonthlyContribution(false)
     }
 
-    if (initialContributionIsValid === false || initialContribution === '') {
+    if (initialContributionIsValid === false || initialContributionValue.current === '') {
       setInitialContribution(false)
     }
 
-    if (deadlineIsValid === false || deadline === '') {
+    if (deadlineIsValid === false || deadlineValue.current === '') {
       setDeadline(false)
     }
   }

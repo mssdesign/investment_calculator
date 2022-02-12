@@ -90,7 +90,9 @@ const Simulator = (props) => {
     num = num.replace(/[R$]|\D/gi, '')
 
     if (num === '') {
+      setInputInitialContribution('')
       setInitialContribution(false)
+      validateForm()
       e.target.value = ''
       return
     }
@@ -107,7 +109,9 @@ const Simulator = (props) => {
     num = num.replace(/\D/gi, '')
 
     if (num === '') {
+      setInputDeadline('')
       setDeadline(false)
+      validateForm()
       e.target.value = ''
       return
     }
@@ -124,7 +128,9 @@ const Simulator = (props) => {
     num = num.replace(/[R$]|\D/gi, '')
 
     if (num === '') {
+      setInputMonthlyContribution('')
       setMonthlyContribution(false)
+      validateForm()
       e.target.value = ''
       return
     }
@@ -142,13 +148,15 @@ const Simulator = (props) => {
     num = num.replace(/\D|%*/gi, '')
 
     if (num === '') {
+      setInputProfitability('')
       setProfitability(false)
+      validateForm()
       e.target.value = ''
       return
     }
 
-    setProfitability(true)
     setInputProfitability(num)
+    setProfitability(true)
     e.target.value = num + '%'
     validateForm()
   }
@@ -186,7 +194,7 @@ const Simulator = (props) => {
       monthlyContributionIsValid &&
       initialContributionIsValid &&
       deadlineIsValid &&
-      profitabilityValue.current !== '' &&
+      profitabilityValue.current !== '' &&  //usar constante atualizada do state!
       monthlyContributionValue.current !== '' &&
       initialContributionValue.current !== '' &&
       deadlineValue.current !== ''

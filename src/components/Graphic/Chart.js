@@ -13,7 +13,6 @@ const Chart = (props) => {
         `/simulacoes?tipoIndexacao=${indexingSearch}&tipoRendimento=${incomeSearch}`
       )
       .then((response) => {
-        console.log(response.data[0]['graficoValores']['comAporte'][0])
         setChartDataFetched(response.data[0]['graficoValores'])
       })
       .catch((err) => {

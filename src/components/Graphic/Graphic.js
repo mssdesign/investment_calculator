@@ -4,9 +4,6 @@ import React, { useState, useEffect } from 'react'
 import Chart from './Chart'
 
 const Graphic = (props) => {
-  //http://localhost:3000/simulacoes?tipoIndexacao=pos&tipoRendimento=bruto
-  //props.searchData[0]
-
   let incomeSearch = props.searchData[0]
   let indexingSearch = props.searchData[1]
   const [dataFetched, setDataFetched] = useState(null)
@@ -17,7 +14,6 @@ const Graphic = (props) => {
         `/simulacoes?tipoIndexacao=${indexingSearch}&tipoRendimento=${incomeSearch}`
       )
       .then((response) => {
-        console.log(response.data)
         setDataFetched(response.data)
       })
       .catch((err) => {

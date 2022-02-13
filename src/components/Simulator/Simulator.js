@@ -7,11 +7,13 @@ const Simulator = (props) => {
   //Botões dos tipos de rendimento
   const [incomeGrossButtonClass, setGrossButton] = useState('active')
   const [incomeLiquidButtonClass, setLiquidButton] = useState('disabled')
+  const [activeIncomeButton, setActiveIncomeButton] = useState('bruto')
 
   //Botões dos tipos de indexação
   const [indexingPreviousButtonClass, setPreviousButton] = useState('disabled')
   const [indexingPosteriorButtonClass, setPosteriorButton] = useState('active')
   const [indexingFixedButtonClass, setFixedButton] = useState('disabled')
+  const [activeIndexingButton, setActiveIndexingButton] = useState('pos')
 
   //Validando e atualizando valores do rendimento
   const [profitabilityIsValid, setProfitability] = useState(true)
@@ -53,11 +55,13 @@ const Simulator = (props) => {
   function activeGrossButton() {
     setGrossButton('active')
     setLiquidButton('disabled')
+    setActiveIncomeButton('bruto')
   }
 
   function activeLiquidButton() {
     setGrossButton('disabled')
     setLiquidButton('active')
+    setActiveIncomeButton('liquido')
   }
 
   //Alternando botões dos tipos de indexação
@@ -65,18 +69,21 @@ const Simulator = (props) => {
     setPreviousButton('active')
     setPosteriorButton('disabled')
     setFixedButton('disabled')
+    setActiveIndexingButton('pre')
   }
 
   function activePosteriorButton() {
     setPreviousButton('disabled')
     setPosteriorButton('active')
     setFixedButton('disabled')
+    setActiveIndexingButton('pos')
   }
 
   function activeFixedButton() {
     setPreviousButton('disabled')
     setPosteriorButton('disabled')
     setFixedButton('active')
+    setActiveIndexingButton('ipca')
   }
 
   //Limpando campos
@@ -179,7 +186,8 @@ const Simulator = (props) => {
 
   //Função para abrir a tabela
   function simulateInvestments() {
-    props.onSimulate()
+    let simulateData = [activeIncomeButton, activeIndexingButton]
+    props.onSimulate(simulateData)
   }
 
   //Validando formulário

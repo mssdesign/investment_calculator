@@ -3,6 +3,7 @@ import api from '../../services/api'
 
 const Graphic = (props) => {
     //http://localhost:3000/simulacoes?tipoIndexacao=pos&tipoRendimento=bruto
+    //props.searchData[0]
 
     async function getSimulationValues() {
         await api
@@ -22,7 +23,7 @@ const Graphic = (props) => {
             <div className='board'>
                 <div className='card'>
                     <h5>Valor final bruto</h5>
-                    <p>R$ 15.509,27</p>
+                    <p>{props.searchData[0]}</p>                    
                 </div>
                 <div className='card'>
                     <h5>Aliquota do IR</h5>

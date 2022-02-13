@@ -5,8 +5,10 @@ import React, { useState } from 'react';
 
 const App = () => {
   const [showGraphic, toggleShowGraphic] = useState(false)
+  const [searchParams, setSearchParams] = useState(['bruto', 'liquido'])
 
-  function simulate () {
+  function simulate (props) {
+    setSearchParams(props)
     toggleShowGraphic(true)
   }
 
@@ -20,7 +22,7 @@ const App = () => {
           <Simulator onSimulate={simulate}></Simulator>
         </div>
         <div className='component'>
-          {showGraphic && <Graphic></Graphic>}
+          {showGraphic && <Graphic searchData={searchParams}></Graphic>}
         </div>
       </div>
     </div>

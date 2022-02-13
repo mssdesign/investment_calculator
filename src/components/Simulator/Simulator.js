@@ -196,20 +196,19 @@ const Simulator = (props) => {
       deadlineInput !== ''
     ) {
       setValidateForm(true)
-      console.log(true)
-      console.log('rentabilidade: ' + profitabilityValue.current)
-      console.log('Contribuição mensal: ' + monthlyContributionValue.current)
-      console.log('Contribuição inicial: ' + initialContributionValue.current)
-      console.log('Prazo: ' + deadlineValue.current)
     } else {
       setValidateForm(false)
-      console.log(false)
-      console.log('rentabilidade: ' + profitabilityValue.current)
-      console.log('Contribuição mensal: ' + monthlyContributionValue.current)
-      console.log('Contribuição inicial: ' + initialContributionValue.current)
-      console.log('Prazo: ' + deadlineValue.current)
     }
   }
+
+  useEffect(() => {
+    validateForm()
+  }, [
+    profitabilityInput,
+    monthlyContributionInput,
+    initialContributionInput,
+    deadlineInput,
+  ])
 
   //Mostrando campos inválidos ao usuário
   function showInvalidInputs() {

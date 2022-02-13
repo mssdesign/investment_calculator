@@ -91,8 +91,8 @@ const Simulator = (props) => {
 
     if (num === '') {
       setInputInitialContribution('')
+      setValidateForm(false)
       setInitialContribution(false)
-      validateForm()
       e.target.value = ''
       return
     }
@@ -100,7 +100,6 @@ const Simulator = (props) => {
     setInputInitialContribution(num)
     setInitialContribution(true)
     e.target.value = `R$ ${num}`
-    validateForm()
   }
 
   //Validando prazo
@@ -110,8 +109,8 @@ const Simulator = (props) => {
 
     if (num === '') {
       setInputDeadline('')
+      setValidateForm(false)
       setDeadline(false)
-      validateForm()
       e.target.value = ''
       return
     }
@@ -119,7 +118,6 @@ const Simulator = (props) => {
     setInputDeadline(num)
     setDeadline(true)
     e.target.value = `${num}`
-    validateForm()
   }
 
   //Validando o campo de contribuição mensal
@@ -129,8 +127,8 @@ const Simulator = (props) => {
 
     if (num === '') {
       setInputMonthlyContribution('')
+      setValidateForm(false)
       setMonthlyContribution(false)
-      validateForm()
       e.target.value = ''
       return
     }
@@ -138,7 +136,6 @@ const Simulator = (props) => {
     setInputMonthlyContribution(num)
     setMonthlyContribution(true)
     e.target.value = `R$ ${num}`
-    validateForm()
   }
 
   //Validando o campo de rentabilidade
@@ -149,8 +146,8 @@ const Simulator = (props) => {
 
     if (num === '') {
       setInputProfitability('')
+      setValidateForm(false)
       setProfitability(false)
-      validateForm()
       e.target.value = ''
       return
     }
@@ -158,7 +155,6 @@ const Simulator = (props) => {
     setInputProfitability(num)
     setProfitability(true)
     e.target.value = num + '%'
-    validateForm()
   }
 
   //Fetching dos indicadores
@@ -194,18 +190,20 @@ const Simulator = (props) => {
       monthlyContributionIsValid &&
       initialContributionIsValid &&
       deadlineIsValid &&
-      profitabilityValue.current !== '' &&  //usar constante atualizada do state!
-      monthlyContributionValue.current !== '' &&
-      initialContributionValue.current !== '' &&
-      deadlineValue.current !== ''
+      profitabilityInput !== '' &&
+      monthlyContributionInput !== '' &&
+      initialContributionInput !== '' &&
+      deadlineInput !== ''
     ) {
       setValidateForm(true)
+      console.log(true)
       console.log('rentabilidade: ' + profitabilityValue.current)
       console.log('Contribuição mensal: ' + monthlyContributionValue.current)
       console.log('Contribuição inicial: ' + initialContributionValue.current)
       console.log('Prazo: ' + deadlineValue.current)
     } else {
       setValidateForm(false)
+      console.log(false)
       console.log('rentabilidade: ' + profitabilityValue.current)
       console.log('Contribuição mensal: ' + monthlyContributionValue.current)
       console.log('Contribuição inicial: ' + initialContributionValue.current)
@@ -215,15 +213,23 @@ const Simulator = (props) => {
 
   //Mostrando campos inválidos ao usuário
   function showInvalidInputs() {
+    validateForm()
+
     if (profitabilityIsValid === false || profitabilityValue.current === '') {
       setProfitability(false)
     }
 
-    if (monthlyContributionIsValid === false || monthlyContributionValue.current === '') {
+    if (
+      monthlyContributionIsValid === false ||
+      monthlyContributionValue.current === ''
+    ) {
       setMonthlyContribution(false)
     }
 
-    if (initialContributionIsValid === false || initialContributionValue.current === '') {
+    if (
+      initialContributionIsValid === false ||
+      initialContributionValue.current === ''
+    ) {
       setInitialContribution(false)
     }
 

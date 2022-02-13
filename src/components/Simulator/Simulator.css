@@ -137,7 +137,6 @@ input:focus {
 #disabledForm {
     background-color: #969696;
     border: none;
-    cursor: not-allowed;
 }
 
 #disabledForm:hover {

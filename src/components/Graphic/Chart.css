@@ -34,32 +34,59 @@
 }
 
 .bars .bar {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    height: 100%;
+    margin-left: 5px;
+    cursor: pointer;
+    justify-content: end;
+}
+
+.bars .bar .com-aporte {
     display: block;
     background: #ED8E53;
     width: 80%;
     height: 50%;
-    transform: translateY(60%);
-    margin-left: 5px;
-    cursor: pointer;
-    text-align: center;
 }
 
-.bars .bar2 {
+.bars .bar .sem-aporte {
     display: block;
     background: #000;
     width: 80%;
     height: 20%;
-    transform: translateY(150%);
-    margin-top: 4px;
+    margin-top: 3px;
+}
+
+/* .bars .com-aporte {
+    display: block;
+    background: #ED8E53;
+    width: 80%;
+    height: 50%;
+    position: absolute;
+    bottom: 0;
     margin-left: 5px;
     cursor: pointer;
     text-align: center;
 }
 
-.bars .bar:hover {
+.bars .sem-aporte {
+    display: block;
+    background: #000;
+    width: 80%;
+    height: 20%;
+    position: absolute;
+    bottom: 0;
+    margin-top: 4px;
+    margin-left: 5px;
+    cursor: pointer;
+    text-align: center;
+} */
+
+.bars .com-aporte:hover {
     background: #f3a778;
 }
 
-.bars .bar2:hover {
+.bars .sem-aporte:hover {
     background: rgb(54, 54, 54);
 }

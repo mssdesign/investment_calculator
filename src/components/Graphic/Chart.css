@@ -40,7 +40,7 @@
     height: 100%;
     margin-left: 5px;
     cursor: pointer;
-    justify-content: end;
+    justify-content: flex-end;
 }
 
 .bars .bar .com-aporte {

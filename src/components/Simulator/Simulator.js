@@ -203,6 +203,7 @@ const Simulator = (props) => {
 
   useEffect(() => {
     validateForm()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
     profitabilityInput,
     monthlyContributionInput,

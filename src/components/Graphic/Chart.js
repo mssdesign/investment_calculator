@@ -7,6 +7,7 @@ const Chart = (props) => {
   let indexingSearch = props.searchData[1]
   const [chartDataFetched, setChartDataFetched] = useState(null)
 
+  //Fazendo fetching dos dados
   async function getChartValues() {
     await api
       .get(
@@ -25,6 +26,17 @@ const Chart = (props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
+  //Definindo gráfico
+  function comAporteBar(num) {
+    let height = (chartDataFetched['comAporte'][num])/100
+    return height
+  }
+
+  function semAporteBar(num) {
+    let height = (chartDataFetched['semAporte'][num])/100
+    return height
+  }
+
   return (
     <div>
       <h4 className="chart-title">Projeção de Valores</h4>
@@ -36,16 +48,16 @@ const Chart = (props) => {
                 className="com-aporte"
                 style={
                   chartDataFetched
-                    ? { height: `${(chartDataFetched['comAporte'][0] - 1000) * 10 }%` }
-                    : { height: '5%' }
+                    ? { height: `${comAporteBar(0)}%` }
+                    : { height: '1%' }
                 }
               ></div>
               <div
                 className="sem-aporte"
                 style={
                   chartDataFetched
-                    ? { height: `${(chartDataFetched['semAporte'][0]  - 1000) * 10}%` }
-                    : { height: '5%' }
+                    ? { height: `${semAporteBar(0)}%` }
+                    : { height: '1%' }
                 }
               ></div>
             </div>
@@ -57,16 +69,16 @@ const Chart = (props) => {
                 className="com-aporte"
                 style={
                   chartDataFetched
-                    ? { height: `${(chartDataFetched['comAporte'][1] - 1100) * 10 }%` }
-                    : { height: '5%' }
+                    ? { height: `${comAporteBar(1)}%` }
+                    : { height: '1%' }
                 }
               ></div>
               <div
                 className="sem-aporte"
                 style={
                   chartDataFetched
-                    ? { height: `${(chartDataFetched['semAporte'][1]  - 1000) * 10}%` }
-                    : { height: '5%' }
+                    ? { height: `${semAporteBar(1)}%` }
+                    : { height: '1%' }
                 }
               ></div>
             </div>
@@ -78,16 +90,16 @@ const Chart = (props) => {
                 className="com-aporte"
                 style={
                   chartDataFetched
-                    ? { height: `${(chartDataFetched['comAporte'][2] - 1200) * 10 }%` }
-                    : { height: '5%' }
+                    ? { height: `${comAporteBar(2)}%` }
+                    : { height: '1%' }
                 }
               ></div>
               <div
                 className="sem-aporte"
                 style={
                   chartDataFetched
-                    ? { height: `${(chartDataFetched['semAporte'][2]  - 1000) * 10}%` }
-                    : { height: '5%' }
+                    ? { height: `${semAporteBar(2)}%` }
+                    : { height: '1%' }
                 }
               ></div>
             </div>
@@ -99,16 +111,16 @@ const Chart = (props) => {
                 className="com-aporte"
                 style={
                   chartDataFetched
-                    ? { height: `${(chartDataFetched['comAporte'][3] - 1300) * 10 }%` }
-                    : { height: '5%' }
+                    ? { height: `${comAporteBar(3)}%` }
+                    : { height: '1%' }
                 }
               ></div>
               <div
                 className="sem-aporte"
                 style={
                   chartDataFetched
-                    ? { height: `${(chartDataFetched['semAporte'][3]  - 1000) * 10}%` }
-                    : { height: '5%' }
+                    ? { height: `${semAporteBar(3)}%` }
+                    : { height: '1%' }
                 }
               ></div>
             </div>
@@ -120,16 +132,16 @@ const Chart = (props) => {
                 className="com-aporte"
                 style={
                   chartDataFetched
-                    ? { height: `${(chartDataFetched['comAporte'][4] - 1400) * 10 }%` }
-                    : { height: '5%' }
+                    ? { height: `${comAporteBar(4)}%` }
+                    : { height: '1%' }
                 }
               ></div>
               <div
                 className="sem-aporte"
                 style={
                   chartDataFetched
-                    ? { height: `${(chartDataFetched['semAporte'][4]  - 1000) * 10}%` }
-                    : { height: '5%' }
+                    ? { height: `${semAporteBar(4)}%` }
+                    : { height: '1%' }
                 }
               ></div>
             </div>
@@ -141,16 +153,16 @@ const Chart = (props) => {
                 className="com-aporte"
                 style={
                   chartDataFetched
-                    ? { height: `${(chartDataFetched['comAporte'][5] - 1500) * 10 }%` }
-                    : { height: '5%' }
+                    ? { height: `${comAporteBar(5)}%` }
+                    : { height: '1%' }
                 }
               ></div>
               <div
                 className="sem-aporte"
                 style={
                   chartDataFetched
-                    ? { height: `${(chartDataFetched['semAporte'][5]  - 1000) * 10}%` }
-                    : { height: '5%' }
+                    ? { height: `${semAporteBar(5)}%` }
+                    : { height: '1%' }
                 }
               ></div>
             </div>
@@ -162,16 +174,16 @@ const Chart = (props) => {
                 className="com-aporte"
                 style={
                   chartDataFetched
-                    ? { height: `${(chartDataFetched['comAporte'][6] - 1600) * 10 }%` }
-                    : { height: '5%' }
+                    ? { height: `${comAporteBar(6)}%` }
+                    : { height: '1%' }
                 }
               ></div>
               <div
                 className="sem-aporte"
                 style={
                   chartDataFetched
-                    ? { height: `${(chartDataFetched['semAporte'][6]  - 1000) * 10}%` }
-                    : { height: '5%' }
+                    ? { height: `${semAporteBar(6)}%` }
+                    : { height: '1%' }
                 }
               ></div>
             </div>
@@ -183,16 +195,16 @@ const Chart = (props) => {
                 className="com-aporte"
                 style={
                   chartDataFetched
-                    ? { height: `${(chartDataFetched['comAporte'][7] - 1700) * 10 }%` }
-                    : { height: '5%' }
+                    ? { height: `${comAporteBar(7)}%` }
+                    : { height: '1%' }
                 }
               ></div>
               <div
                 className="sem-aporte"
                 style={
                   chartDataFetched
-                    ? { height: `${(chartDataFetched['semAporte'][7]  - 1000) * 10}%` }
-                    : { height: '5%' }
+                    ? { height: `${semAporteBar(7)}%` }
+                    : { height: '1%' }
                 }
               ></div>
             </div>
@@ -204,16 +216,16 @@ const Chart = (props) => {
                 className="com-aporte"
                 style={
                   chartDataFetched
-                    ? { height: `${(chartDataFetched['comAporte'][8] - 1800) * 10 }%` }
-                    : { height: '5%' }
+                    ? { height: `${comAporteBar(8)}%` }
+                    : { height: '1%' }
                 }
               ></div>
               <div
                 className="sem-aporte"
                 style={
                   chartDataFetched
-                    ? { height: `${(chartDataFetched['semAporte'][8]  - 1000) * 10}%` }
-                    : { height: '5%' }
+                    ? { height: `${semAporteBar(8)}%` }
+                    : { height: '1%' }
                 }
               ></div>
             </div>
@@ -225,16 +237,16 @@ const Chart = (props) => {
                 className="com-aporte"
                 style={
                   chartDataFetched
-                    ? { height: `${(chartDataFetched['comAporte'][9] - 1900) * 10 }%` }
-                    : { height: '5%' }
+                    ? { height: `${comAporteBar(9)}%` }
+                    : { height: '1%' }
                 }
               ></div>
               <div
                 className="sem-aporte"
                 style={
                   chartDataFetched
-                    ? { height: `${(chartDataFetched['semAporte'][9]  - 1000) * 10}%` }
-                    : { height: '5%' }
+                    ? { height: `${semAporteBar(9)}%` }
+                    : { height: '1%' }
                 }
               ></div>
             </div>
@@ -246,16 +258,16 @@ const Chart = (props) => {
                 className="com-aporte"
                 style={
                   chartDataFetched
-                    ? { height: `${(chartDataFetched['comAporte'][10] - 2000) * 10}%` }
-                    : { height: '5%' }
+                    ? { height: `${comAporteBar(10)}%` }
+                    : { height: '1%' }
                 }
               ></div>
               <div
                 className="sem-aporte"
                 style={
                   chartDataFetched
-                    ? { height: `${(chartDataFetched['semAporte'][10] - 1000) * 10}%` }
-                    : { height: '5%' }
+                    ? { height: `${semAporteBar(10)}%` }
+                    : { height: '1%' }
                 }
               ></div>
             </div>

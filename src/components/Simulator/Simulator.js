@@ -283,6 +283,7 @@ const Simulator = (props) => {
               Aporte Inicial
             </h5>{' '}
             <input
+              id="aporteInicial"
               type="text"
               onBlur={validateInitialContribution}
               style={
@@ -302,6 +303,7 @@ const Simulator = (props) => {
               Prazo (em meses)
             </h5>
             <input
+              id="prazoMeses"
               type="text"
               onBlur={validateDeadline}
               style={
@@ -358,6 +360,7 @@ const Simulator = (props) => {
               Aporte Mensal
             </h5>
             <input
+              id="aporteMensal"
               type="text"
               onBlur={validateMonthlyContribution}
               style={
@@ -380,6 +383,7 @@ const Simulator = (props) => {
               Rentabilidade
             </h5>
             <input
+              id="rentabilidade"
               type="text"
               onBlur={validateProfitability}
               style={

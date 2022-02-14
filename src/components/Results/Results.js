@@ -1,4 +1,4 @@
-import './Graphic.css'
+import './Results.css'
 import api from '../../services/api'
 import React, { useState, useEffect } from 'react'
 import Chart from './Chart'

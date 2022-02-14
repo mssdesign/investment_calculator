@@ -1,6 +1,6 @@
 import './App.css'
 import Simulator from './components/Simulator/Simulator';
-import Graphic from './components/Graphic/Graphic';
+import Graphic from './components/Results/Results';
 import React, { useState } from 'react';
 
 const App = () => {

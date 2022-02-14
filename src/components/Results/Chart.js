@@ -41,6 +41,7 @@ const Chart = (props) => {
     <div>
       <h4 className="chart-title">Projeção de Valores</h4>
       <div className="chart">
+        <p className="legend-aside">Valor (R$)</p>
         <ul className="bars">
           <li>
             <div className="bar">
@@ -274,6 +275,16 @@ const Chart = (props) => {
             <span>10</span>
           </li>
         </ul>
+        <p className='legend-bottom'>Tempo (meses)</p>
+        <div className='legend-color'>
+          <div className='orange'>
+            <p>Com aporte</p>
+          </div>
+          <div className='black'>
+            <span></span>
+            <p>Sem aporte</p>
+          </div>
+        </div>
       </div>
     </div>
   )

@@ -34,23 +34,23 @@ const Graphic = (props) => {
         <div className="card">
           <h5>Valor final bruto</h5>
           <p>
-            {!dataFetched ? 'Carregando...' : dataFetched[0]['valorFinalBruto']}
+          R$ {!dataFetched ? 'Carregando...' : dataFetched[0]['valorFinalBruto']}
           </p>
         </div>
         <div className="card">
           <h5>Aliquota do IR</h5>
-          <p>{!dataFetched ? 'Carregando...' : dataFetched[0]['aliquotaIR']}</p>
+          <p>{!dataFetched ? 'Carregando...' : dataFetched[0]['aliquotaIR']}%</p>
         </div>
         <div className="card">
           <h5>Valor pago em IR</h5>
           <p>
-            {!dataFetched ? 'Carregando...' : dataFetched[0]['valorPagoIR']}
+          R$ {!dataFetched ? 'Carregando...' : dataFetched[0]['valorPagoIR']}
           </p>
         </div>
         <div className="card">
           <h5>Valor final líquido</h5>
-          <p>
-            {!dataFetched
+          <p style={{color: '#1DBC00'}}>
+            R$ {!dataFetched
               ? 'Carregando...'
               : dataFetched[0]['valorFinalLiquido']}
           </p>
@@ -58,15 +58,15 @@ const Graphic = (props) => {
         <div className="card">
           <h5>Valor total investido</h5>
           <p>
-            {!dataFetched
+          R$ {!dataFetched
               ? 'Carregando...'
               : dataFetched[0]['valorTotalInvestido']}
           </p>
         </div>
         <div className="card">
           <h5>Ganho líquido</h5>
-          <p>
-            {!dataFetched ? 'Carregando...' : dataFetched[0]['ganhoLiquido']}
+          <p style={{color: '#1DBC00'}}>
+            R$ {!dataFetched ? 'Carregando...' : dataFetched[0]['ganhoLiquido']}
           </p>
         </div>
       </div>

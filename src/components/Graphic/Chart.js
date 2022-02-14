@@ -28,13 +28,13 @@ const Chart = (props) => {
 
   //Definindo gráfico
   function comAporteBar(num) {
-    let height = (chartDataFetched['comAporte'][num])/100
-    return height
+    let height = (chartDataFetched['comAporte'][num])/50
+    return Math.floor(height)
   }
 
   function semAporteBar(num) {
-    let height = (chartDataFetched['semAporte'][num])/100
-    return height
+    let height = (chartDataFetched['semAporte'][num])/50
+    return Math.floor(height)
   }
 
   return (

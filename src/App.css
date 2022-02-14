@@ -10,3 +10,10 @@
     grid-template-columns: 0.7fr 1fr;    
     grid-template-rows: 85vh;
 }
+
+@media screen and (max-width: 820px) {
+    .components {
+        display: flex;
+        flex-direction: column;
+    }
+}

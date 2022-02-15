@@ -24,7 +24,7 @@
 </ul>
 
 <h2>Como executar a aplicação:</h2>
-<p>Faça o clone/download deste repositório, execute <code>npm install</code> e em seguida <code>npm start</code>.</p>
+<p>✅ Faça o clone/download deste repositório, execute <code>npm install</code> e em seguida <code>npm start</code>.</p>
 <p><strong>ATENÇÃO: Para que essa aplicação funcione corretamente certifique-se de que a <a href="https://github.com/mssdesign/desafio-fake-api">API</a> já está funcionando!</strong></p>
 <p>Link para a API: https://github.com/mssdesign/desafio-fake-api</p>
 

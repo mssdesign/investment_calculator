@@ -21,3 +21,7 @@
   <li>eslint</li>
   <li>prettier</li>
 </ul>
+
+<h2>Como executar:</h2>
+<p>Faça o clone/download deste repositório, execute `npm install` e em seguida `npm start`</p>
+<p><strong>ATENÇÃO: Para que essa aplicação funcione corretamente certifique-se de que a <a href="https://github.com/mssdesign/desafio-fake-api">API</a> já está funcionando.</strong></p>

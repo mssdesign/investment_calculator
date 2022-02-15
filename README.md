@@ -20,6 +20,7 @@
 <ul>
   <li>eslint</li>
   <li>prettier</li>
+  <li>Cypress</li>
 </ul>
 
 <h2>Como executar a aplicação:</h2>

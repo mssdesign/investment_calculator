@@ -24,7 +24,14 @@
 </ul>
 
 <h2>Como executar a aplicação:</h2>
+<h3>Usuários Windows:</h3>
 <p>✅ Faça o clone/download deste repositório, execute <code>npm install</code> e em seguida <code>npm start</code>. A aplicação ficará localizada em <code>http//localhost:2000</code>.</p>
 <p><strong>ATENÇÃO: Para que essa aplicação funcione corretamente certifique-se de que a <a href="https://github.com/mssdesign/desafio-fake-api">API</a> já está funcionando!</strong></p>
 <p>Link para a API: https://github.com/mssdesign/desafio-fake-api</p>
+
+<h3>Usuários Linux:</h3>
+<p>✅ Faça o clone/download deste repositório, execute <code>npm install</code> e em seguida <code>npm run env -- PORT=2000 react-scripts start</code>. A aplicação ficará localizada em <code>http//localhost:2000</code>.</p>
+<p><strong>ATENÇÃO: Para que essa aplicação funcione corretamente certifique-se de que a <a href="https://github.com/mssdesign/desafio-fake-api">API</a> já está funcionando!</strong></p>
+<p>Link para a API: https://github.com/mssdesign/desafio-fake-api</p>
+
 

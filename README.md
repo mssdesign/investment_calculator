@@ -10,7 +10,10 @@
 <h2>Mensagem de erro na validação:</h2>
 <img src="https://github.com/mssdesign/portfolios/blob/main/portifolio_vs1/src/Assets/WebSitesPreview/calculator3.PNG?raw=true" target='_blank' width="500" height="280">
 
-<h2>Biblioteca utilizada: Reactjs</h2>
+<h2>Biblioteca utilizada:</h2>
+<ul>
+    <li>Reactjs</li>
+</ul>
 
 <h2>Ferramentas utilizadas:</h2>
 <ul>
